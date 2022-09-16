@@ -3,7 +3,7 @@ name: python commands
 on: push
 
 jobs:
-  run-shell-commands:
+  run-python-commands:
     runs-on: ubuntu-latest
     steps:
       - name: echo a string
