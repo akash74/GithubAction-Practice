@@ -1,9 +1,7 @@
 name: python commands
 
-on:
-  schedule:
-    - cron: "*/5 * * * *"
-  #push:
+on: push
+  
     
 jobs:
   run-python-commands:
