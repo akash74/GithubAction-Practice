@@ -2,8 +2,8 @@ name: python commands
 
 on:
   schedule:
-    - cron: "0/5 * * * *"
-  #push:
+    - cron: "*/5 * * * *"
+  # push:
     
 
 jobs:
