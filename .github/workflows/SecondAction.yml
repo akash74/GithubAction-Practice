@@ -3,9 +3,8 @@ name: python commands
 on:
   schedule:
     - cron: "*/5 * * * *"
-  # push:
+  #push:
     
-
 jobs:
   run-python-commands:
     runs-on: ubuntu-latest
