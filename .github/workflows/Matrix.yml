@@ -30,5 +30,4 @@ jobs:
         run: |
           node -v
           echo $IS_UBUNTU_8
-          apt list --installed
 
