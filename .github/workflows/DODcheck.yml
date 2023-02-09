@@ -21,4 +21,5 @@ jobs:
          npm install yq -y
          yq --version
          pwd
+         ls -la
          
