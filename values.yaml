@@ -1,0 +1,41 @@
+replicacount: 5
+name: profile-biz
+labels:
+  app.kubernetes: A414549
+image:
+  repository: profile-biz
+  tag: 2.0.1
+env:
+  - name: cosmosdbpri
+    valueFrom:
+      secretkeyref:
+        name: primarycosmodb
+        key: primarycosmodbmykey
+  - name: cosmosdbsec
+    valueFrom:
+      secretkeyref:
+        name: secondarycosmodb
+        key: secondarycosmodbmykey
+  - name: LOG_LEVEL
+    value: "error"
+  - name: kpconfig_accesstoken
+    valueFrom:
+      secretkeyref:
+        name: profile-biz
+        key: KPCONFIG_ACCESSTOKEN
+readinessprob:
+  enabled: true
+  initialdelaysec: 210
+  timeoutseconds: 3
+  httpget:
+    path: /health
+    port: 8080
+livenessprob:
+  enabled: true
+  initialdelaysec: 210
+  timeoutseconds: 3
+  httpget:
+    path: /livenessprobe
+    port: 8080
+nodeselector: {}
+tolerations: []
