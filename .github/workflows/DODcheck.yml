@@ -1,0 +1,30 @@
+name: DOD check
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  DODtest:
+    runs-on: ubuntu-latest
+
+    steps:
+     - name: chechkout code
+       uses: actions/checkout@v3
+       with:
+         ref: master
+         fetch-depth: 0   
+
+     - name: install npm, js-yaml, yq
+       id: installation
+       run: |
+         sudo apt-get install npm
+         npm -v
+         sudo npm install -g js-yaml
+         sudo npm install -g yq
+         yq --version
+         a=npm -v
+         b=yq --version
+         echo $a
+         echo $b
