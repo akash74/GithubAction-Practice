@@ -17,12 +17,5 @@ jobs:
      - name: install npm, js-yaml, yq
        id: installation
        run: |
-         sudo apt-get install npm
-         npm -v
-         sudo npm install -g js-yaml
-         sudo npm install -g yq
-         yq --version
-         a=npm -v
-         b=yq --version
-         echo $a
-         echo $b
+         npm install js-yaml -y
+         
