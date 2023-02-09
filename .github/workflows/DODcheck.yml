@@ -18,4 +18,6 @@ jobs:
        id: installation
        run: |
          npm install js-yaml -y
+         npm install yq -y
+         yq --version
          
