@@ -23,12 +23,12 @@ jobs:
          log_level_value=$(yq '.env[] | select(.name == "LOG_LEVEL") | .value ' values.yaml)
          echo $log_level_value
        env:
-         a: ${{ steps.installation.outputs.message }}
+         a: ${{ steps.installation.output }}
 
      - name: store the output of installation step here
        id: storing
        run: |
-         log=$a
+         log= ${{ env.a }}
          echo $log
 
          
