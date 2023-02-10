@@ -19,12 +19,21 @@ jobs:
        run: |
          npm install js-yaml -y
          npm install yq -y
-         npm install jq -y
          yq --version
-         jq --version
-         pwd
-         ls -la
-         js-yaml values.yaml > values.json
-         jq 'LOG_LEVEL' values.json
+         log_level_value=$(yq '.env[] | select(.name == "LOG_LEVEL") | .value ' values.yaml)
+         echo $log_level_value
+       env:
+         a: ${{ steps.installation.output }}
+
+     - name: store the output of installation step here
+       id: storing
+       run: |
+         log=$a
+         echo $log
+
+         
+
+
+        
 
          
